@@ -36,14 +36,14 @@ import de.ankri.text.method.TransformationMethodCompat2;
  * See the <a href="http://developer.android.com/guide/topics/ui/controls/togglebutton.html">Toggle Buttons</a> guide.
  * </p>
  * 
- * @attr ref android.R.styleable#Switch_textOn
- * @attr ref android.R.styleable#Switch_textOff
- * @attr ref android.R.styleable#Switch_switchMinWidth
- * @attr ref android.R.styleable#Switch_switchPadding
- * @attr ref android.R.styleable#Switch_switchTextAppearance
- * @attr ref android.R.styleable#Switch_thumb
- * @attr ref android.R.styleable#Switch_thumbTextPadding
- * @attr ref android.R.styleable#Switch_track
+ * @attr ref android.R.styleable#Switch_scl_textOn
+ * @attr ref android.R.styleable#Switch_scl_textOff
+ * @attr ref android.R.styleable#Switch_scl_switchMinWidth
+ * @attr ref android.R.styleable#Switch_scl_switchPadding
+ * @attr ref android.R.styleable#Switch_scl_switchTextAppearance
+ * @attr ref android.R.styleable#Switch_scl_thumb
+ * @attr ref android.R.styleable#Switch_scl_thumbTextPadding
+ * @attr ref android.R.styleable#Switch_scl_track
  */
 public class Switch extends CompoundButton
 {
@@ -113,7 +113,7 @@ public class Switch extends CompoundButton
 	 */
 	public Switch(Context context, AttributeSet attrs)
 	{
-		this(context, attrs, R.attr.switchStyle);
+		this(context, attrs, R.attr.scl_switchStyle);
 	}
 
 	/**
@@ -124,7 +124,7 @@ public class Switch extends CompoundButton
 	 * @param attrs
 	 *            Specification of attributes that should deviate from the default styling.
 	 * @param defStyle
-	 *            An attribute ID within the active theme containing a reference to the default style for this widget. e.g. android.R.attr.switchStyle.
+	 *            An attribute ID within the active theme containing a reference to the default style for this widget. e.g. android.R.attr.scl_switchStyle.
 	 */
 	public Switch(Context context, AttributeSet attrs, int defStyle)
 	{
@@ -139,15 +139,15 @@ public class Switch extends CompoundButton
 
 		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.Switch, defStyle, 0);
 
-		mThumbDrawable = a.getDrawable(R.styleable.Switch_thumb);
-		mTrackDrawable = a.getDrawable(R.styleable.Switch_track);
-		mTextOn = a.getText(R.styleable.Switch_textOn);
-		mTextOff = a.getText(R.styleable.Switch_textOff);
-		mThumbTextPadding = a.getDimensionPixelSize(R.styleable.Switch_thumbTextPadding, 0);
-		mSwitchMinWidth = a.getDimensionPixelSize(R.styleable.Switch_switchMinWidth, 0);
-		mSwitchPadding = a.getDimensionPixelSize(R.styleable.Switch_switchPadding, 0);
+		mThumbDrawable = a.getDrawable(R.styleable.Switch_scl_thumb);
+		mTrackDrawable = a.getDrawable(R.styleable.Switch_scl_track);
+		mTextOn = a.getText(R.styleable.Switch_scl_textOn);
+		mTextOff = a.getText(R.styleable.Switch_scl_textOff);
+		mThumbTextPadding = a.getDimensionPixelSize(R.styleable.Switch_scl_thumbTextPadding, 0);
+		mSwitchMinWidth = a.getDimensionPixelSize(R.styleable.Switch_scl_switchMinWidth, 0);
+		mSwitchPadding = a.getDimensionPixelSize(R.styleable.Switch_scl_switchPadding, 0);
 
-		int appearance = a.getResourceId(R.styleable.Switch_switchTextAppearance, 0);
+		int appearance = a.getResourceId(R.styleable.Switch_scl_switchTextAppearance, 0);
 		if (appearance != 0)
 		{
 			setSwitchTextAppearance(context, appearance);
@@ -177,7 +177,7 @@ public class Switch extends CompoundButton
 	/**
 	 * Sets the switch text color, size, style, hint color, and highlight color from the specified TextAppearance resource.
 	 * 
-	 * @attr ref android.R.styleable#Switch_switchTextAppearance
+	 * @attr ref android.R.styleable#Switch_scl_switchTextAppearance
 	 */
 	public void setSwitchTextAppearance(Context context, int resid)
 	{
@@ -186,7 +186,7 @@ public class Switch extends CompoundButton
 		ColorStateList colors;
 		int ts;
 
-		colors = appearance.getColorStateList(R.styleable.TextAppearanceSwitch_textColor);
+		colors = appearance.getColorStateList(R.styleable.TextAppearanceSwitch_scl_textColor);
 		if (colors != null)
 		{
 			mTextColors = colors;
@@ -197,7 +197,7 @@ public class Switch extends CompoundButton
 			mTextColors = getTextColors();
 		}
 
-		ts = appearance.getDimensionPixelSize(R.styleable.TextAppearanceSwitch_textSize, 0);
+		ts = appearance.getDimensionPixelSize(R.styleable.TextAppearanceSwitch_scl_textSize, 0);
 		if (ts != 0)
 		{
 			if (ts != mTextPaint.getTextSize())
@@ -209,12 +209,12 @@ public class Switch extends CompoundButton
 
 		int typefaceIndex, styleIndex;
 
-		typefaceIndex = appearance.getInt(R.styleable.TextAppearanceSwitch_typeface, -1);
-		styleIndex = appearance.getInt(R.styleable.TextAppearanceSwitch_textStyle, -1);
+		typefaceIndex = appearance.getInt(R.styleable.TextAppearanceSwitch_scl_typeface, -1);
+		styleIndex = appearance.getInt(R.styleable.TextAppearanceSwitch_scl_textStyle, -1);
 
 		setSwitchTypefaceByIndex(typefaceIndex, styleIndex);
 
-		boolean allCaps = appearance.getBoolean(R.styleable.TextAppearanceSwitch_textAllCaps, false);
+		boolean allCaps = appearance.getBoolean(R.styleable.TextAppearanceSwitch_scl_textAllCaps, false);
 		if (allCaps)
 		{
 			mSwitchTransformationMethod = new AllCapsTransformationMethod(getContext());
@@ -281,8 +281,8 @@ public class Switch extends CompoundButton
 	 * Sets the typeface in which the text should be displayed on the switch. Note that not all Typeface families actually have bold and italic variants, so you may need to use
 	 * {@link #setSwitchTypeface(Typeface, int)} to get the appearance that you actually want.
 	 * 
-	 * @attr ref android.R.styleable#TextView_typeface
-	 * @attr ref android.R.styleable#TextView_textStyle
+	 * @attr ref android.R.styleable#TextView_scl_typeface
+	 * @attr ref android.R.styleable#TextView_scl_textStyle
 	 */
 	public void setSwitchTypeface(Typeface tf)
 	{
@@ -301,7 +301,7 @@ public class Switch extends CompoundButton
 	 * @param pixels
 	 *            Amount of padding in pixels
 	 * 
-	 * @attr ref android.R.styleable#Switch_switchPadding
+	 * @attr ref android.R.styleable#Switch_scl_switchPadding
 	 */
 	public void setSwitchPadding(int pixels)
 	{
@@ -314,7 +314,7 @@ public class Switch extends CompoundButton
 	 * 
 	 * @return Amount of padding in pixels
 	 * 
-	 * @attr ref android.R.styleable#Switch_switchPadding
+	 * @attr ref android.R.styleable#Switch_scl_switchPadding
 	 */
 	public int getSwitchPadding()
 	{
@@ -327,7 +327,7 @@ public class Switch extends CompoundButton
 	 * @param pixels
 	 *            Minimum width of the switch in pixels
 	 * 
-	 * @attr ref android.R.styleable#Switch_switchMinWidth
+	 * @attr ref android.R.styleable#Switch_scl_switchMinWidth
 	 */
 	public void setSwitchMinWidth(int pixels)
 	{
@@ -340,7 +340,7 @@ public class Switch extends CompoundButton
 	 * 
 	 * @return Minimum width of the switch in pixels
 	 * 
-	 * @attr ref android.R.styleable#Switch_switchMinWidth
+	 * @attr ref android.R.styleable#Switch_scl_switchMinWidth
 	 */
 	public int getSwitchMinWidth()
 	{
@@ -353,7 +353,7 @@ public class Switch extends CompoundButton
 	 * @param pixels
 	 *            Horizontal padding for switch thumb text in pixels
 	 * 
-	 * @attr ref android.R.styleable#Switch_thumbTextPadding
+	 * @attr ref android.R.styleable#Switch_scl_thumbTextPadding
 	 */
 	public void setThumbTextPadding(int pixels)
 	{
@@ -366,7 +366,7 @@ public class Switch extends CompoundButton
 	 * 
 	 * @return Horizontal padding for switch thumb text in pixels
 	 * 
-	 * @attr ref android.R.styleable#Switch_thumbTextPadding
+	 * @attr ref android.R.styleable#Switch_scl_thumbTextPadding
 	 */
 	public int getThumbTextPadding()
 	{
@@ -379,7 +379,7 @@ public class Switch extends CompoundButton
 	 * @param track
 	 *            Track drawable
 	 * 
-	 * @attr ref android.R.styleable#Switch_track
+	 * @attr ref android.R.styleable#Switch_scl_track
 	 */
 	public void setTrackDrawable(Drawable track)
 	{
@@ -393,7 +393,7 @@ public class Switch extends CompoundButton
 	 * @param resId
 	 *            Resource ID of a track drawable
 	 * 
-	 * @attr ref android.R.styleable#Switch_track
+	 * @attr ref android.R.styleable#Switch_scl_track
 	 */
 	public void setTrackResource(int resId)
 	{
@@ -405,7 +405,7 @@ public class Switch extends CompoundButton
 	 * 
 	 * @return Track drawable
 	 * 
-	 * @attr ref android.R.styleable#Switch_track
+	 * @attr ref android.R.styleable#Switch_scl_track
 	 */
 	public Drawable getTrackDrawable()
 	{
@@ -418,7 +418,7 @@ public class Switch extends CompoundButton
 	 * @param thumb
 	 *            Thumb drawable
 	 * 
-	 * @attr ref android.R.styleable#Switch_thumb
+	 * @attr ref android.R.styleable#Switch_scl_thumb
 	 */
 	public void setThumbDrawable(Drawable thumb)
 	{
@@ -432,7 +432,7 @@ public class Switch extends CompoundButton
 	 * @param resId
 	 *            Resource ID of a thumb drawable
 	 * 
-	 * @attr ref android.R.styleable#Switch_thumb
+	 * @attr ref android.R.styleable#Switch_scl_thumb
 	 */
 	public void setThumbResource(int resId)
 	{
@@ -444,7 +444,7 @@ public class Switch extends CompoundButton
 	 * 
 	 * @return Thumb drawable
 	 * 
-	 * @attr ref android.R.styleable#Switch_thumb
+	 * @attr ref android.R.styleable#Switch_scl_thumb
 	 */
 	public Drawable getThumbDrawable()
 	{
@@ -454,7 +454,7 @@ public class Switch extends CompoundButton
 	/**
 	 * Returns the text displayed when the button is in the checked state.
 	 * 
-	 * @attr ref android.R.styleable#Switch_textOn
+	 * @attr ref android.R.styleable#Switch_scl_textOn
 	 */
 	public CharSequence getTextOn()
 	{
@@ -464,7 +464,7 @@ public class Switch extends CompoundButton
 	/**
 	 * Sets the text displayed when the button is in the checked state.
 	 * 
-	 * @attr ref android.R.styleable#Switch_textOn
+	 * @attr ref android.R.styleable#Switch_scl_textOn
 	 */
 	public void setTextOn(CharSequence textOn)
 	{
@@ -475,7 +475,7 @@ public class Switch extends CompoundButton
 	/**
 	 * Returns the text displayed when the button is not in the checked state.
 	 * 
-	 * @attr ref android.R.styleable#Switch_textOff
+	 * @attr ref android.R.styleable#Switch_scl_textOff
 	 */
 	public CharSequence getTextOff()
 	{
@@ -485,7 +485,7 @@ public class Switch extends CompoundButton
 	/**
 	 * Sets the text displayed when the button is not in the checked state.
 	 * 
-	 * @attr ref android.R.styleable#Switch_textOff
+	 * @attr ref android.R.styleable#Switch_scl_textOff
 	 */
 	public void setTextOff(CharSequence textOff)
 	{

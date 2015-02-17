@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<attr name="switchStyle" format="reference" />
+	<attr name="scl_switchStyle" format="reference" />
     <declare-styleable name="Switch">
-        <attr name="thumb" format="reference"/>
-        <attr name="track" format="reference" />
-        <attr name="textOn" format="string"/>
-        <attr name="textOff" format="string"/>
-        <attr name="thumbTextPadding" format="dimension" />
-        <attr name="switchTextAppearance" format="reference" />
-        <attr name="switchMinWidth" format="dimension" />
-        <attr name="switchPadding" format="dimension" />
+        <attr name="scl_thumb" format="reference"/>
+        <attr name="scl_track" format="reference" />
+        <attr name="scl_textOn" format="string"/>
+        <attr name="scl_textOff" format="string"/>
+        <attr name="scl_thumbTextPadding" format="dimension" />
+        <attr name="scl_switchTextAppearance" format="reference" />
+        <attr name="scl_switchMinWidth" format="dimension" />
+        <attr name="scl_switchPadding" format="dimension" />
 	</declare-styleable>
 	
-    <attr name="textAppearance" format="reference" />
+    <attr name="scl_textAppearance" format="reference" />
   <declare-styleable name="TextAppearanceSwitch" >
-      	<attr name="textColor" format="color" /> 
-        <attr name="textSize" format="dimension"/>
-        <attr name="textStyle" format="reference"/>
-        <attr name="typeface" format="reference"/>
-        <attr name="fontFamily" format="reference"/>
-        <attr name="textColorHighlight" format="color"/>
-        <attr name="textColorHint" format="color" />
-        <attr name="textColorLink" format="color" />
-        <attr name="textAllCaps" format="boolean" />
+      	<attr name="scl_textColor" format="color" /> 
+        <attr name="scl_textSize" format="dimension"/>
+        <attr name="scl_textStyle" format="reference"/>
+        <attr name="scl_typeface" format="reference"/>
+        <attr name="scl_fontFamily" format="reference"/>
+        <attr name="scl_textColorHighlight" format="color"/>
+        <attr name="scl_textColorHint" format="color" />
+        <attr name="scl_textColorLink" format="color" />
+        <attr name="scl_textAllCaps" format="boolean" />
     </declare-styleable>   
   
 </resources>
