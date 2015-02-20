@@ -1,10 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res/de.ankri.switchtest" 
-    >
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              xmlns:app="http://schemas.android.com/apk/res/de.ankri.switchtest"
+        >
 
     <de.ankri.views.Switch
         android:layout_marginTop="20dp"
@@ -21,8 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/custom"
-        app:textOn="Right"
-        app:textOff="Left"
+        app:scl_textOn="Right"
+        app:scl_textOff="Left"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         
